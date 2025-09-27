@@ -90,54 +90,167 @@
 // const nf = new NotFoundException('Product not found', 404);
 
 // Access modifier: public, private, protected
-class Person {
-  private name: string;
-  private age = 50;
-  constructor(name: string) {
-    this.name = name;
-  }
+// class Person {
+//   private name: string;
+//   private age = 50;
+//   constructor(name: string) {
+//     this.name = name;
+//   }
 
-  public print() {
-    console.log(this.name);
-    console.log(this.age);
-  }
+//   public print() {
+//     console.log(this.name);
+//     console.log(this.age);
+//   }
 
-  protected test() {}
-}
+//   private test() {}
+// }
 
-class Lawyer extends Person {
-  static runningId: number = 0;
-  static getRunningId() {
-    console.log('muamua');
-  }
+// class Lawyer extends Person {
+//   static runningId: number = 0;
+//   static getRunningId() {
+//     console.log('muamua');
+//   }
 
-  public degree: string;
-  constructor(degree: string, name: string) {
-    super(name);
-    this.degree = degree;
-  }
+//   public degree: string;
+//   constructor(degree: string, name: string) {
+//     super(name);
+//     this.degree = degree;
+//   }
 
-  private sayHi() {
-    // console.log(this.name);
-    // console.log(this.age);
-  }
+//   private sayHi() {
+//     // console.log(this.name);
+//     // console.log(this.age);
+//   }
 
-  public test() {}
-}
+//   public test() {}
+// }
 
-console.log(Lawyer.runningId);
-// const l1 = new Lawyer('dggggg', 'nammmmm');
-// l1.runningId
+// console.log(Lawyer.runningId);
+// // const l1 = new Lawyer('dggggg', 'nammmmm');
+// // l1.runningId
 
-// console.log(l1.name);
-// console.log(l1.age);
-// l1.sayHi();
+// // console.log(l1.name);
+// // console.log(l1.age);
+// // l1.sayHi();
 
-// const p = new Person('assa');
-// p.print();
-// p.age;
-// p.name;
+// // const p = new Person('assa');
+// // p.print();
+// // p.age;
+// // p.name;
 
-// Date.now(); // millisecond timestamt 1/1/1970
-// const d = new Date('2025-01-01');
-// d.getTime();
+// // Date.now(); // millisecond timestamt 1/1/1970
+// // const d = new Date('2025-01-01');
+// // d.getTime();
+
+// class List<T> {
+//   content: T[];
+
+//   constructor(initialValues: T[]) {
+//     this.content = initialValues;
+//   }
+// }
+
+// const a = new List<string>(['', 'tete']);
+// const b = new List<number>([1, 4]);
+// b.content.map((el) => {});
+
+// class Person {
+//   public name: string;
+//   public age: number;
+
+//   constructor(name: string, age: number) {
+//     this.name = name;
+//     this.age = age;
+//   }
+// }
+
+// class ShortHandPerson {
+//   constructor(
+//     public name: string,
+//     public age: number
+//   ) {}
+// }
+
+// const shp = new ShortHandPerson('john', 20);
+// console.log(shp.name);
+
+// interface Repository<T = any> {
+//   findAll(): T[];
+//   findById(id: string): T | null;
+// }
+
+// class UserRepository implements Repository {
+//   findAll(): string[] {
+//     return [];
+//   }
+
+//   findById(id: string): string | null {
+//     return id;
+//   }
+// }
+
+// const u = new UserRepository();
+// u.findAll();
+
+// abstract class HashService {
+//   getSalt() {
+//     console.log('GET salt');
+//   }
+
+//   abstract hash(): string;
+// }
+
+// md5
+// class MdService extends HashService {
+//   hash(): string {
+//     // md.hash()
+//   }
+// }
+
+// class BcryptService extends HashService {
+//   hash(): string {
+//     // bcrypt.hash()
+//   }
+// }
+// OOP abstraction, inheritance, encapsulation, polymorphysm
+
+// SOLID, D => dependency inversion of controle
+// class AuthService {
+//   constructor(public s: HashService) {}
+
+//   register(email: string, password: string) {
+//     // const s = new BcryptService(); // AuthService has dependency with BcryptService
+//     const hasedPassword = this.s.hash();
+//   }
+
+//   insertNewUser() {}
+// }
+
+// const mdService = new MdService()
+// const testHashService = {  }
+// const bcryptService = new BcryptService();
+// const authService = new AuthService(bcryptService);
+// authService.register('e', 'p');
+
+// DI (Dependency Injection)
+// NESTJS using DI Container [ instanceof HashService  ]
+
+// interface Repository<T> {
+//   findAll(): T[];
+//   findOne(id: string): T;
+//   create(input: Omit<T, 'id'>): T;
+// }
+
+// class PrismaUserRepository implements Repository<User> {}
+// class TestUserRepository implements Repository<User> {
+//   private user: [];
+
+//   findAll(): User[] {
+//     return this.user;
+//   }
+// }
+
+// class UserService {
+//   constructor(r: Repository<User>) {}
+//   findAll() {}
+// }
